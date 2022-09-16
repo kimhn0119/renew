@@ -24,10 +24,10 @@ def hello():
 def index():
     return "Homepage of GeeksForGeeks"
   
-@app.route("/ifttt",methods=["POST"])
+@app.route("/ifttt",methods=["GET"])
 def ifttt():
 
-    info = request.get_data()
+    info = request.args.get('email') 
     pp = "DFHGKJDFG {}".format(info)
     print("DFHGKJDFG {}".format(info))
     return pp
