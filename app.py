@@ -10,7 +10,7 @@ def show_user(username):
 
     
 
-    #requests.post('https://maker.ifttt.com/trigger/wordpress/with/key/ZwaxwZ1PFl5eBknC9XGXG',data=res)
+    requests.post('https://maker.ifttt.com/trigger/wordpress/with/key/ZwaxwZ1PFl5eBknC9XGXG',data=res)
     # Greet the user
     return f'Hello {username} !'
   
