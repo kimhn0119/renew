@@ -18,7 +18,14 @@ def show_user(username):
 # Pass the required route to the decorator.
 @app.route("/hello")
 def hello():
-    return "Hello, Welcome to GeeksForGeeks"
+#https://hf.space/embed/hnam/start/infer_t5?input=German:%20There%20are%20many%20ducksdfgdfgdfg
+
+    sss = 'German:i stay here'
+    res = {"input":sss}
+    r=requests.post('https://hf.space/embed/hnam/start/infer_t5',data=res)
+
+    print(r.json())
+    return "Hello, Welcome to GeeksForGeeks".r
     
 @app.route("/")
 def index():
