@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 import requests
+from requests.structures import CaseInsensitiveDict
   
 app = Flask(__name__)
   
@@ -20,12 +21,24 @@ def show_user(username):
 def hello():
 #https://hf.space/embed/hnam/start/infer_t5?input=German:%20There%20are%20many%20ducksdfgdfgdfg
 
-    sss = 'German i stay here'
-    res = {"input":sss}
-    r=requests.post('https://hf.space/embed/hnam/start/hello',json=res)
 
-    print(r.json())
-    return "Hello, Welcome to GeeksForGeeks".r
+    url = "https://hf.space/embed/hnam/start/hello"
+
+    headers = CaseInsensitiveDict()
+    headers["Content-Type"] = "application/json"
+
+    data = """
+    {"input":"fdgdf"}
+
+    """
+
+
+    resp = requests.post(url, headers=headers, data=data)
+
+   
+
+    print(resp)
+    return "Hello, Welcome to GeeksForGeeks".resp
     
 @app.route("/")
 def index():
