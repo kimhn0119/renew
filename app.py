@@ -22,7 +22,7 @@ def hello():
 
     sss = 'German:i stay here'
     res = {"input":sss}
-    r=requests.post('https://hf.space/embed/hnam/start/infer_t5',data=res)
+    r=requests.post('https://hf.space/embed/hnam/start/hello',data=res)
 
     print(r.json())
     return "Hello, Welcome to GeeksForGeeks".r
