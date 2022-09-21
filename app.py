@@ -19,26 +19,17 @@ def show_user(username):
 # Pass the required route to the decorator.
 @app.route("/hello")
 def hello():
-#https://hf.space/embed/hnam/start/infer_t5?input=German:%20There%20are%20many%20ducksdfgdfgdfg
-
 
     url = "https://hf.space/embed/hnam/start/hello"
+    yyy='you'
+    r = requests.post(
+        url,
+        data=json.dumps({"input": "German:i miss {}".format(yyy)}),
+        headers={"Content-Type": "application/json"},
+    )
 
-    headers = CaseInsensitiveDict()
-    headers["Content-Type"] = "application/json"
-
-    data = """
-    {"input":"fdgdf"}
-
-    """
-
-
-    resp = requests.post(url, headers=headers, data=data)
-
-   
-
-    print(resp)
-    return "Hello, Welcome to GeeksForGeeks".resp
+    print( r.json())
+    return r.json()
     
 @app.route("/")
 def index():
