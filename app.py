@@ -70,10 +70,10 @@ def wiki(mystring):
 
 
 
-    json_string = json.dumps(elasticdoc)
+    #json_string = json.dumps(elasticdoc)
 
    # json_string = json.dumps(r)
-
+    json_string ='ewre'
     print( json_string)
     return json_string
 
