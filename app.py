@@ -66,7 +66,7 @@ def wiki(mystring):
 
             #elasticdoc.append([c.title,c.fullurl,c.text,cccttt,sections,links])
 
-            index + =1
+            index += 1
 
 
 
