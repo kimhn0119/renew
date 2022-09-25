@@ -52,9 +52,9 @@ def wiki(mystring):
 
     cat =  wiki_wiki.page(mystring).categorymembers
     elasticdoc =[]
-
+    index = 0
     for c in cat.values():
-        print(index,"%s: %s (nss: %d)" % ("*" * (1 + 1), c.title, c.ns))
+        print(index,"%s: %s (nss: %s)" % (c.fullurl, c.title, c.ns))
         if  c.ns == 0:
 
             cccttt= ''
@@ -64,7 +64,9 @@ def wiki(mystring):
             #sections= print_sections(c.sections)
             links= ''
 
-            elasticdoc.append([c.title,c.fullurl,c.text,cccttt,sections,links])
+            #elasticdoc.append([c.title,c.fullurl,c.text,cccttt,sections,links])
+
+            index + =1
 
 
 
