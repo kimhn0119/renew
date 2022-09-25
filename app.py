@@ -34,8 +34,10 @@ def wiki(mystring):
 
     r=cat.values()
 
-    print( r.json())
-    return r.json()
+    json_string = json.dumps(r)
+
+    print( json_string)
+    return json_string
 
 
     # r = requests.get(url)
