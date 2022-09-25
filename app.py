@@ -5,16 +5,43 @@ from lxml import html
 import requests
 import json
 from requests.structures import CaseInsensitiveDict
+import wikipediaapi
+
+   
+
   
 app = Flask(__name__)
 
 @app.route('/https/<url>')
 def root(url):    
     url = 'https://' + url
+
+    
     r = requests.get(url)
     rr = Response(response=r.content, status=r.status_code)
     rr.headers["Content-Type"] = r.headers['Content-Type']
     return rr
+@app.route('/wiki/<mystring>')
+def root(url):    
+    url = 'https://' + url
+
+    wiki_wiki = wikipediaapi.Wikipedia(
+         language='en',
+         extract_format=wikipediaapi.ExtractFormat.WIKI
+    )
+
+    cat =  wiki_wiki.page(mystring).categorymembers
+
+    r=cat.values()
+
+    print( r.json())
+    return r.json()
+
+
+    # r = requests.get(url)
+    # rr = Response(response=r.content, status=r.status_code)
+    # rr.headers["Content-Type"] = r.headers['Content-Type']
+   # return rr
   
 @app.route('/user/<username>')
 def show_user(username):
