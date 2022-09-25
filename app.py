@@ -1,10 +1,20 @@
 from flask import Flask
 from flask import request
+from flask import Response
+from lxml import html
 import requests
 import json
 from requests.structures import CaseInsensitiveDict
   
 app = Flask(__name__)
+
+@app.route('/https/<url>')
+def root(url):    
+    url = 'https://' + url
+    r = requests.get(url)
+    rr = Response(response=r.content, status=r.status_code)
+    rr.headers["Content-Type"] = r.headers['Content-Type']
+    return rr
   
 @app.route('/user/<username>')
 def show_user(username):
