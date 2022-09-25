@@ -18,7 +18,7 @@ app = Flask(__name__)
 def root2(url):    
     url = 'https://' + url
 
-    print(url)
+    print('------rr---------------------------------------',url)
 
     
     r = requests.get(url)
