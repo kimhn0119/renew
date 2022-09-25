@@ -23,7 +23,7 @@ def root(url):
     return rr
 @app.route('/wiki/<mystring>')
 def root(mystring):    
-    url = 'https://' + url
+   # url = 'https://' + url
 
     wiki_wiki = wikipediaapi.Wikipedia(
          language='en',
