@@ -56,9 +56,9 @@ def wiki(mystring):
     for c in cat.values():
         print(index,"%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
         if  c.ns == 0:
-            cccttt= print_categories(page)
+            cccttt= print_categories(c)
             
-            sections= print_sections(page.sections)
+            sections= print_sections(c.sections)
             links= ''
 
             elasticdoc.append([c.title,c.fullurl,c.text,cccttt,sections,links])
