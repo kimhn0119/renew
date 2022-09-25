@@ -13,7 +13,7 @@ import wikipediaapi
 app = Flask(__name__)
 
 @app.route('/https/<url>')
-def root(url):    
+def root2(url):    
     url = 'https://' + url
 
     
@@ -22,7 +22,7 @@ def root(url):
     rr.headers["Content-Type"] = r.headers['Content-Type']
     return rr
 @app.route('/wiki/<mystring>')
-def root(mystring):    
+def wiki(mystring):    
    # url = 'https://' + url
 
     wiki_wiki = wikipediaapi.Wikipedia(
