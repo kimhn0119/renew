@@ -13,13 +13,14 @@ import wikipediaapi
 app = Flask(__name__)
 
 
-
 @app.route('/https/<url>')
 def root2(url):    
     url = 'https://' + url
 
-    print('------rr---------------------------------------',url)
+  #  print('------rr---------------------------------------',url)
 
+
+    url = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Ostrava&explaintext=1&exsectionformat=wiki'
     
     r = requests.get(url)
     rr = Response(response=r.content, status=r.status_code)
