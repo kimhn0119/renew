@@ -33,11 +33,12 @@ def wiki(mystring):
     cat =  wiki_wiki.page(mystring).categorymembers
 
     r=cat.values()
+    rr='sdfds'
 
    # json_string = json.dumps(r)
 
     print( r)
-    return r
+    return rr
 
 
     # r = requests.get(url)
