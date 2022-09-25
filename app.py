@@ -54,8 +54,9 @@ def wiki(mystring):
     elasticdoc =[]
 
     for c in cat.values():
-        print(index,"%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
+        print(index,"%s: %s (nss: %d)" % ("*" * (1 + 1), c.title, c.ns))
         if  c.ns == 0:
+
             cccttt= print_categories(c)
             
             sections= print_sections(c.sections)
