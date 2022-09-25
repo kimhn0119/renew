@@ -12,6 +12,8 @@ import wikipediaapi
   
 app = Flask(__name__)
 
+
+
 @app.route('/https/<url>')
 def root2(url):    
     url = 'https://' + url
@@ -22,7 +24,25 @@ def root2(url):
     rr.headers["Content-Type"] = r.headers['Content-Type']
     return rr
 @app.route('/wiki/<mystring>')
-def wiki(mystring):    
+def wiki(mystring):   
+
+    def print_sections(sections, level=0):
+        sections2 = ''
+
+        for s in sections:
+            sections2 = sections2 +   ' ||| '+ s.title
+            #print("%s: %s - %s" % ("*" * (level + 1), s.title, s.text[0:40]))
+            #print_sections(s.sections, level + 1)
+        return sections2    
+
+    def print_categories(page):
+
+        rt = ''
+        categories = page.categories
+        for title in sorted(categories.keys()):
+            rt = rt + ' ||| '+  title
+            #print("%s: %s" % (title, categories[title]))
+        return rt 
    # url = 'https://' + url
 
     wiki_wiki = wikipediaapi.Wikipedia(
@@ -31,14 +51,26 @@ def wiki(mystring):
     )
 
     cat =  wiki_wiki.page(mystring).categorymembers
+    elasticdoc =[]
 
-    r=cat.values()
-    rr='sdfds'
+    for c in cat.values():
+        print(index,"%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
+        if  c.ns == 0:
+            cccttt= print_categories(page)
+            
+            sections= print_sections(page.sections)
+            links= ''
+
+            elasticdoc.append([c.title,c.fullurl,c.text,cccttt,sections,links])
+
+
+
+    json_string = json.dumps(elasticdoc)
 
    # json_string = json.dumps(r)
 
-    print( r)
-    return rr
+    print( json_string)
+    return json_string
 
 
     # r = requests.get(url)
