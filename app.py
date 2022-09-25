@@ -17,11 +17,20 @@ app = Flask(__name__)
 def root2(url):    
  
 
-  #  print('------rr---------------------------------------',url)
+  #   params['format'] = 'json'
+           # params['redirects'] = 1
 
 
-    url = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Ostrava&explaintext=1&exsectionformat=wiki&format=json'
+   # url = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Ostrava&explaintext=1&exsectionformat=wiki&format=json'
     
+    url = url.replace('@@', '?').replace('ppppppp', '&').replace('mmmmmmm', '=')
+
+    url = 'https://en.wikipedia.org/w/api.php'+ url + '&format=json&redirects=1'
+
+    print('ttttttttt---------',url)
+
+
+
     r = requests.get(url)
     rr = Response(response=r.content, status=r.status_code)
     rr.headers["Content-Type"] = r.headers['Content-Type']
