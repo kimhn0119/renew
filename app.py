@@ -22,7 +22,7 @@ def root(url):
     rr.headers["Content-Type"] = r.headers['Content-Type']
     return rr
 @app.route('/wiki/<mystring>')
-def root(url):    
+def root(mystring):    
     url = 'https://' + url
 
     wiki_wiki = wikipediaapi.Wikipedia(
