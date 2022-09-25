@@ -18,6 +18,8 @@ app = Flask(__name__)
 def root2(url):    
     url = 'https://' + url
 
+    print(url)
+
     
     r = requests.get(url)
     rr = Response(response=r.content, status=r.status_code)
